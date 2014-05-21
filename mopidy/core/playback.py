@@ -103,7 +103,18 @@ class PlaybackController(object):
 
         self._trigger_volume_changed(volume)
 
-    volume = property(get_volume, set_volume)
+    def set_rel_volume(self, volume):
+        if self.audio:
+            v=self.get_volume()
+            self.audio.set_volume(v+volume)
+        else:
+            # For testing
+            self._volume = v+volume
+
+        self._trigger_volume_changed(v+volume)
+
+    volume = property(get_volume, set_volume,set_rel_volume)
+
     """Volume as int in range [0..100] or :class:`None`"""
 
     def get_mute(self):
