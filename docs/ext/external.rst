@@ -51,6 +51,15 @@ Provides a backend for playing music from `Google Play Music
 <https://play.google.com/music/>`_.
 
 
+Mopidy-InternetArchive
+======================
+
+https://github.com/tkem/mopidy-internetarchive
+
+Extension for playing music and audio from the `Internet Archive
+<https://archive.org/>`_.
+
+
 Mopidy-MPRIS
 ============
 
@@ -82,6 +91,24 @@ Mopidy-Podcast
 https://github.com/tkem/mopidy-podcast
 
 Extension for browsing RSS feeds of podcasts and stream the episodes.
+
+
+Mopidy-Podcast-gpodder.net
+==========================
+
+https://github.com/tkem/mopidy-podcast-gpodder
+
+Extension for Mopidy-Podcast that lets you search and browse podcasts from the
+`gpodder.net <https://gpodder.net/>`_ web site.
+
+
+Mopidy-Podcast-iTunes
+=====================
+
+https://github.com/tkem/mopidy-podcast-itunes
+
+Extension for Mopidy-Podcast that lets you search and browse podcasts from the
+Apple iTunes Store.
 
 
 Mopidy-radio-de
@@ -138,6 +165,15 @@ Provides a backend for playing music from a `Subsonic Music Streamer
 <http://www.subsonic.org/>`_ library.
 
 
+Mopidy-TuneIn
+=============
+
+https://github.com/kingosticks/mopidy-tunein
+
+Provides a backend for playing music from the `TuneIn
+<http://www.tunein.com/>`_ online radio service.
+
+
 Mopidy-VKontakte
 ================
 
@@ -145,3 +181,21 @@ https://github.com/sibuser/mopidy-vkontakte
 
 Provides a backend for playing music from the `VKontakte social network
 <http://vk.com/>`_.
+
+
+Mopidy-Yamaha
+=============
+
+https://github.com/knutz3n/mopidy-yamaha
+
+Extension for controlling volume using an external Yamaha network connected
+amplifier.
+
+
+Mopidy-YouTube
+=================
+
+https://github.com/dz0ny/mopidy-youtube
+
+Provides a backend for playing music from the `YouTube
+<http://www.youtube.com/>`_ service.

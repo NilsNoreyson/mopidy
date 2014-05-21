@@ -5,6 +5,59 @@ Changelog
 This changelog is used to track all major changes to Mopidy.
 
 
+v0.19.0 (UNRELEASED)
+====================
+
+Feature release.
+
+**Backend API**
+
+- Imports of the backend API from :mod:`mopidy.backends` no longer works. The
+  new API introuced in v0.18 is now required. Most extensions already use the
+  new API location.
+
+**Commands**
+
+- The ``mopidy-convert-config`` tool for migrating the ``setings.py``
+  configuration file used by Mopidy up until 0.14 to the new config file format
+  has been removed after almost a year of trusty service. If you still need to
+  convert your old ``settings.py`` configuration file, do so using and older
+  release, like Mopidy 0.18, or migrate the configuration to the new format by
+  hand.
+
+**Extension support**
+
+- Removed the :class:`~mopidy.ext.Extension` methods that were deprecated in
+  0.18: :meth:`~mopidy.ext.Extension.get_backend_classes`,
+  :meth:`~mopidy.ext.Extension.get_frontend_classes`, and
+  :meth:`~mopidy.ext.Extension.register_gstreamer_elements`. Use
+  :meth:`mopidy.ext.Extension.setup` instead, as most extensions already do.
+
+**MPD frontend**
+
+- Proper command tokenization for MPD requests. This replaces the old regex
+  based system with an MPD protocol specific tokenizer responsible for breaking
+  requests into pieces before the handlers have at them.
+  (Fixes: :issue:`591` and :issue:`592`)
+
+- Updated command handler system. As part of the tokenizer cleanup we've
+  updated how commands are registered and making it simpler to create new
+  handlers.
+
+- Simplified a bunch of handlers. All the "browse" type commands now use a
+  common browse helper under the hood for less repetition. Likewise the query
+  handling of "search" commands has been somewhat simplified.
+
+- Adds placeholders for missing MPD commands, preparing the way for bumping the
+  protocol version once they have been added.
+
+**Local backend**
+
+- The ``local scan`` command now use multiple threads to walk the file system
+  and check files' modification time. This speeds up scanning, escpecially
+  when scanning remote file systems over e.g. NFS.
+
+
 v0.18.3 (2014-02-16)
 ====================
 
@@ -649,7 +702,7 @@ one new.
   To ease migration we've made a tool named :option:`mopidy-convert-config` for
   automatically converting the old ``settings.py`` to a new ``mopidy.conf``
   file. This tool takes care of all the renamed config values as well. See
-  :ref:`mopidy-convert-config` for details on how to use it.
+  ``mopidy-convert-config`` for details on how to use it.
 
 - A long wanted feature: You can now enable or disable specific frontends or
   backends without having to redefine :attr:`~mopidy.settings.FRONTENDS` or
