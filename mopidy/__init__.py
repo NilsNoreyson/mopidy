@@ -6,7 +6,7 @@ import warnings
 
 import pykka
 
-
+print('playlist')
 if not (2, 7) <= sys.version_info < (3,):
     sys.exit(
         'Mopidy requires Python >= 2.7, < 3, but found %s' %

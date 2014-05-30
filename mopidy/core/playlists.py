@@ -22,6 +22,7 @@ class PlaylistsController(object):
         playlists = list(itertools.chain(*results))
         if not include_tracks:
             playlists = [p.copy(tracks=[]) for p in playlists]
+	#print(playlists)
         return playlists
 
     playlists = property(get_playlists)
